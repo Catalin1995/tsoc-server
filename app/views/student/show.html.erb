@@ -1,0 +1,47 @@
+<h3> Email: <%= @user.email %> </h3>
+<h3> Name: <% if @user.name == nil %>
+        -------------------
+      <% else %>
+        <%= @user.name %>
+      <% end %><br>
+</h3>
+
+<h3> Status: <%= @status %>/<%= @size %> <h3>
+
+<br>
+
+
+
+<h3> Completed courses: </h3>
+<h4>
+<% @completed.each do |course| %>
+  <div class='col-xs-1'></div>
+
+  <div class='row'>
+    <div class='col-xs-2'>
+      <%= link_to Course.find(course['course_id']).title, course_path(Course.find(course['course_id']))%>
+    </div>
+
+    <div class='col-xs-2'>
+      <%= link_to User.find(course['mentor_id']).email, mentor_path(User.find(course['mentor_id'])) %> <br>
+    </div>
+
+  </div>
+
+<% end %>
+</h4>
+
+<h3> Uncompleted courses: </h3>
+<h4>
+<% @uncompleted.each do |course| %>
+  <div class='col-xs-1'></div>
+
+  <div class='row'>
+  <div class='col-xs-2'>
+  <%= link_to course.title, course_path(course) %>
+  </div>
+
+  </div>
+
+<% end %>
+</h4>

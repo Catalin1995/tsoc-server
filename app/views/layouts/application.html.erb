@@ -8,7 +8,22 @@
 </head>
 <body>
 
-<%= yield %>
+<div class = 'container'>
+  <nav class="navbar navbar-default">
+    <div class='container-fluid'>
+      <div class="navbar-header">
+        <%= link_to 'Main Page', '/', {class: "navbar-brand"} %>
+        <%= link_to 'Students', '/student', {class: "navbar-brand"} %>
+        <%= link_to 'Mentors', '/mentor', {class: "navbar-brand"} %>
+        <%= link_to 'Course', '/course', {class: "navbar-brand"} %>
+      </div>
+    </div>
+  </nav>
+
+  <div class="row">
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>
