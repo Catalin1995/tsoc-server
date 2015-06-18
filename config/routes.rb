@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
 
-
-  # resources :web
-  # resources :student
-  # resources :mentor
   resources :web
   resources :student
   resources :course
   resources :mentor
+
 
   root 'web#index'
 
