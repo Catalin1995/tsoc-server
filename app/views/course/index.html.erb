@@ -1,5 +1,10 @@
-<h1> List of courses </h1>
+<h1>
+List of courses 
+</h1>
+<div class='col-xs-1'></div>
+<div class='col-xs-3'>
 <h3><% @courses.each do |course| %>
   <%= link_to course.title, course_path(course) %><br>
 <% end %>
+</div>
 <h3>

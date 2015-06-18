@@ -20,10 +20,6 @@ class StudentController < ApplicationController
     end
 
     pp @uncompleted
-    
-    # @uncompleted = Course.all
-    # @uncompleted = @uncompleted - @completed
-
 
   end
 

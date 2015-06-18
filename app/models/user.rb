@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :badge
-  validates_associated :badge
+  has_many :badge,
+  # validates_associated :badge
 
   validates :name, presence: true
   # Include default devise modules. Others available are:

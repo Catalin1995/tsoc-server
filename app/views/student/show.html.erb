@@ -1,47 +1,66 @@
-<h3> Email: <%= @user.email %> </h3>
-<h3> Name: <% if @user.name == nil %>
-        -------------------
-      <% else %>
-        <%= @user.name %>
-      <% end %><br>
-</h3>
+<div class="col-xs-3">
+  <%= image_tag("https://camo.githubusercontent.com/341831200626efe3e0cf83317801fcac2200fbe2/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f323639323831302f323130343036312f34643839316563302d386637362d313165332d393230322d6637333934306431306632302e706e67",size: "120x150") %>
+</div>
 
-<h3> Status: <%= @status %>/<%= @size %> <h3>
+<div class="col-xs-9">
+  <h3> Email: <%= @user.email %> </h3>
+  <h3> Name: <% if @user.name == nil %>
+                -------------------
+             <% else %>
+              <%= @user.name %>
+            <% end %><br>
+  </h3>
 
-<br>
+  <h3> Status: <%= @status %>/<%= @size %> <h3>
+</div>
 
+</div>
 
+<div class="row">
+  <font color="green">
+  <h3>
+    <p class="bg-success">
+      Completed courses: 
+    </p>
+  </h3>
+  </font>
 
-<h3> Completed courses: </h3>
-<h4>
-<% @completed.each do |course| %>
-  <div class='col-xs-1'></div>
+  <h4>
+  <% @completed.each do |course| %>
+    <div class='col-xs-1'></div>
 
-  <div class='row'>
-    <div class='col-xs-2'>
-      <%= link_to Course.find(course['course_id']).title, course_path(Course.find(course['course_id']))%>
+    <div class='row'>
+      <div class='col-xs-2'>
+        <%= link_to Course.find(course['course_id']).title, course_path(Course.find(course['course_id']))%>
+      </div>
+
+      <div class='col-xs-2'>
+        <%= link_to User.find(course['mentor_id']).email, mentor_path(User.find(course['mentor_id'])) %> <br>
+      </div>
+
     </div>
 
-    <div class='col-xs-2'>
-      <%= link_to User.find(course['mentor_id']).email, mentor_path(User.find(course['mentor_id'])) %> <br>
+  <% end %>
+  </h4>
+
+  <font color="red">
+    <h3> 
+      <p class="bg-danger"> 
+        Uncompleted courses: 
+      </p>
+    </h3>
+  </font>
+
+  <h4>
+    <% @uncompleted.each do |course| %>
+    <div class='col-xs-1'></div>
+
+    <div class='row'>
+      <div class='col-xs-2'>
+        <%= link_to course.title, course_path(course) %>
+      </div>
+
     </div>
 
-  </div>
-
-<% end %>
-</h4>
-
-<h3> Uncompleted courses: </h3>
-<h4>
-<% @uncompleted.each do |course| %>
-  <div class='col-xs-1'></div>
-
-  <div class='row'>
-  <div class='col-xs-2'>
-  <%= link_to course.title, course_path(course) %>
-  </div>
-
-  </div>
-
-<% end %>
-</h4>
+  <% end %>
+  </h4>
