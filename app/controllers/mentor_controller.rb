@@ -1,7 +1,6 @@
 class MentorController < ApplicationController
   def index
     @mentors = User.where(mentor: true)
-    @counter  = 0
   end
 
   def show

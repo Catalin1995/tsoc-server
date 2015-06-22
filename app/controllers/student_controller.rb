@@ -1,7 +1,6 @@
 class StudentController < ApplicationController
   def index
     @students = User.where(mentor: false)
-    @counter  = 0
   end
 
   def show
@@ -17,7 +16,5 @@ class StudentController < ApplicationController
       @completed.push(badge)
       @uncompleted -= [Course.find(badge['course_id'])]
     end
-
-    pp @uncompleted
   end
 end
