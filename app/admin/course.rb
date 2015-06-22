@@ -12,12 +12,13 @@ ActiveAdmin.register Course do
   #   permitted
   # end
 
-  permit_params :title, :description, :image
+  permit_params :title, :description, :image, :remote_image_url
 
   form do |f|
     f.inputs 'Badge details' do
       f.input :title
       f.input :image
+      f.input :remote_image_url
       f.input :description
     end
     f.actions
