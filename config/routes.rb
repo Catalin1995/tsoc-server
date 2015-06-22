@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  resources :web
   resources :student
   resources :course
   resources :mentor
 
-  root 'web#index'
+  root 'student#index'
 
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

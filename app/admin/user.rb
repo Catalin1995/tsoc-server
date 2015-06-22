@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :email, :password, :password_confirmation, :mentor, :name
+  permit_params :email, :password, :password_confirmation, :mentor, :name, :image
 
   index do
     selectable_column
@@ -10,6 +10,7 @@ ActiveAdmin.register User do
     column :sign_in_count
     column :created_at
     column :mentor
+    column :image
     actions
   end
 
@@ -25,6 +26,7 @@ ActiveAdmin.register User do
       f.input :name
       f.input :password
       f.input :password_confirmation
+      f.input :image
       f.input :mentor
     end
     f.actions

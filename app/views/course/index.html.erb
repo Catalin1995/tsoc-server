@@ -6,10 +6,15 @@
 
 <div class='row', align = 'center'>
   
-  <h3><% @courses.each do |course| %>
+  <% @courses.each_with_index do |course, i| %>
+    <% if i % 4 == 0 %>
+      </div>
+      <div class='row', align='center' >
+    <% end %>
+    
     <div class='col-xs-3'>
-      <%= link_to course.title, course_path(course) %><br>
+      <%= link_to image_tag(course.image, :height => "50%", :width => "50%"), course_path(course) %><br>
+      <h3> <%= link_to course.title, course_path(course) %> </h3><br>
     </div>
     <% end %>
-  <h3>
 </div>
