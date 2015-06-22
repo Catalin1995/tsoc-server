@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-  has_many :badge
+  has_one :badge
 
   validates :title, presence: true
 end

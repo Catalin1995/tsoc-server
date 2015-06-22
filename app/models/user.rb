@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :badge,
+  has_one :badge
   # validates_associated :badge
 
   validates :name, presence: true
@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
 end

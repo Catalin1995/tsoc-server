@@ -7,3 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create!(email: 'admin@example.com', password: 'password', name: 'admin', password_confirmation: 'password', mentor: true)
+User.create!(email: 'mentor1@example.com', password: 'password', name: 'mentor1', password_confirmation: 'password', mentor: true)
+User.create!(email: 'mentor2@example.com', password: 'password', name: 'mentor2', password_confirmation: 'password', mentor: true)
+
+User.create!(email: 'ionut@example.com', password: 'password', name: 'Ionut', password_confirmation: 'password', mentor: false)
+User.create!(email: 'catalina@example.com', password: 'password', name: 'Catalina', password_confirmation: 'password', mentor: false)
+User.create!(email: 'adrian@example.com', password: 'password', name: 'Adrian', password_confirmation: 'password', mentor: false)
+User.create!(email: 'vasile@example.com', password: 'password', name: 'Vasile', password_confirmation: 'password', mentor: false)
+User.create!(email: 'daniela@example.com', password: 'password', name: 'Daniela', password_confirmation: 'password', mentor: false)
+
+
+Course.create!(title: 'Ruby')
+Course.create!(title: 'Python')
+Course.create!(title: 'Git')
