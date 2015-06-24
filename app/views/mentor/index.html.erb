@@ -1,8 +1,11 @@
 <div class="row">
-  <div class = "col-xs-12">
-    <h1> List of mentors </h1>
-  </div>
+    <div class="title-page">
+      <h1 class="title" align='center'> List of mentors </h1>
+    </div>
 </div>
+
+<br><br><br>
+
 
 <div class = "row">
   <% @mentors.each_with_index do |mentor, i| %>
@@ -15,5 +18,5 @@
       <%= link_to image_tag(mentor.image, :height => "50%", :width => "50%"), mentor_path(mentor) %><br>
       <h3><%= link_to mentor.name, mentor_path(mentor) %> </h3>
     </div>
-  <% end %>
+  <% end %> 
 </div>
