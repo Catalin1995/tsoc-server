@@ -13,11 +13,11 @@ gem 'rubocop'
 
 gem 'carrierwave'
 
-#for text format:
+# for text format:
 gem 'redcarpet'
 
-gem 'albino'  
-gem 'nokogiri'  
+gem 'albino'
+gem 'nokogiri'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'

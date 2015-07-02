@@ -1,5 +1,4 @@
 class Badge < ActiveRecord::Base
-
   belongs_to :course, class_name: 'Course'
   belongs_to :student, class_name: 'User'
   belongs_to :mentor, class_name: 'User'
@@ -31,5 +30,4 @@ class Badge < ActiveRecord::Base
       self.errors.add(:mentor, ' Is not mentor!!!')
     end
   end
-
 end

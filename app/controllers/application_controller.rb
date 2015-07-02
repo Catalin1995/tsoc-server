@@ -5,13 +5,10 @@ class ApplicationController < ActionController::Base
 
   def authenticate_mentor_user!
     authenticate_user!
-    if current_user.mentor == false
-      raise SecurityError
-    end
+    fail SecurityError if current_user.mentor == false
   end
 
-  rescue_from SecurityError do |exception|
+  rescue_from SecurityError do |_exception|
     redirect_to '/admin/logout'
   end
-
 end
