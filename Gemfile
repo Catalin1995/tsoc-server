@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'gravatar-ultimate'
+
 # Active admin gem
 gem 'activeadmin', github: 'gregbell/active_admin'
 # Devise gem

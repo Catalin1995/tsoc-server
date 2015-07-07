@@ -23,7 +23,7 @@ User.create!(email: 'timea@example.com', password: 'password', name: 'Timea', pa
 User.create!(email: 'dan@example.com', password: 'password', name: 'Dan', password_confirmation: 'password', mentor: false)
 
 Course.create!(title: 'Ruby')
-Course.create!(title: 'Python')
+Course.create!(title: 'Python', image: 'http://budiirawan.com/wp-content/uploads/2015/04/ruby-logo.png', description: 'tet')
 Course.create!(title: 'Jira')
 Course.create!(title: 'Android')
 Course.create!(title: 'Linux')

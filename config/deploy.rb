@@ -2,7 +2,8 @@
 lock '3.4.0'
 
 set :application, 'tsoc-server'
-set :repo_url, 'git@github.com:Catalin1995/tsoc-server.git'
+# set :repo_url, 'git@github.com:Catalin1995/tsoc-server.git'
+set :repo_url, 'https://github.com/Catalin1995/tsoc-server.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -17,8 +18,7 @@ set :deploy_to, '/home/internship/tsoc-server'
 # set :format, :pretty
 
 # Default value for :log_level is :debug
-# set :log_level, :debug
-
+# SSHKit.config.command_map[:composer] = "/var/www/staging.thisisreneruiz.com/shared/composer.phar"
 # Default value for :pty is false
 # set :pty, true
 
