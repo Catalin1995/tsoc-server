@@ -13,102 +13,96 @@
     <div data-bind="css: { open: isOpen }" class="page">
       <header>
         <img data-bind="click: toggle" src="img/logo.png" class="logo"></header>
-        <div class="intro">
-          <img data-bind="click: toggle" src="img/screenshot.png"><div class="content">
-              <button data-bind="click: toggle">Open the talent tree &raquo;</button></div>
+
+<!-- START TALENT -->
+        <div class="talent-tree">
+          <h2 class="start-helper" data-bind="css:{active:noPointsSpent}">Start here!</h2>
+          <!--ko foreach: skills-->
+          <!--ko if: hasDependencies-->
+          <div data-bind="css: { 'can-add-points': canAddPoints, 'has-points': hasPoints, 'has-max-points': hasMaxPoints }, attr: { 'data-skill-id': id }" class="skill">
+            <div data-bind="css: { active: dependenciesFulfilled }" class="skill-dependency"></div>
+          </div>
+          <!--/ko-->
+          <!--/ko-->
+          <!--ko foreach: skills-->
+          <div data-bind="css: { 'can-add-points': canAddPoints, 'has-points': hasPoints, 'has-max-points': hasMaxPoints }, attr: { 'data-skill-id': id }" class="skill">
+            <div class="icon-container">
+              <div class="icon"></div>
             </div>
-            <div class="talent-tree">
-              <h2 class="start-helper" data-bind="css:{active:noPointsSpent}">Start here!</h2>
-              <!--ko foreach: skills-->
-              <!--ko if: hasDependencies-->
-              <div data-bind="css: { 'can-add-points': canAddPoints, 'has-points': hasPoints, 'has-max-points': hasMaxPoints }, attr: { 'data-skill-id': id }" class="skill">
-                <div data-bind="css: { active: dependenciesFulfilled }" class="skill-dependency"></div>
+            <div class="frame">
+              <div class="tool-tip">
+                <h3 data-bind="text: title" class="skill-name"></h3>
+                <div data-bind="html: description" class="skill-description"></div>
+                <ul class="skill-links">
+                  <!--ko foreach: links-->
+                  <li>
+                    <a data-bind="attr: { href: url }, click: function(){
+                      _gaq.push(['_trackEvent',$parent.title, label, url]);
+                      return true;
+                    }, text: label" target="_blank"></a>
+                  </li>
+                  <!--/ko-->
+                </ul>
+                <hr data-bind="visible: currentRankDescription() || nextRankDescription()">
+                <div data-bind="if: currentRankDescription" class="current-rank-description">Current rank: <span data-bind="	text: currentRankDescription"></span></div>
+                <div data-bind="if: nextRankDescription" class="next-rank-description">Next rank: <span data-bind="	text: nextRankDescription"></span></div>
+                <hr>
+                <ul class="stats">
+                  <!--ko foreach: stats-->
+                  <li><span class="value">+<span data-bind="text: value"></span></span> <span data-bind="	text: title" class="title"></span></li>
+                  <!--/ko-->
+                </ul>
+                <!--ko if: talentSummary-->
+                <div class="talent-summary">Grants <span data-bind="text: talentSummary"></span></div>
+                <!--/ko-->
+                <div data-bind="text: helpMessage" class="help-message"></div>
               </div>
-              <!--/ko-->
-              <!--/ko-->
-              <!--ko foreach: skills-->
-              <div data-bind="css: { 'can-add-points': canAddPoints, 'has-points': hasPoints, 'has-max-points': hasMaxPoints }, attr: { 'data-skill-id': id }" class="skill">
-                <div class="icon-container">
-                  <div class="icon"></div>
-                </div>
-                <div class="frame">
-                  <div class="tool-tip">
-                    <h3 data-bind="text: title" class="skill-name"></h3>
-                    <div data-bind="html: description" class="skill-description"></div>
-                    <ul class="skill-links">
-                      <!--ko foreach: links-->
-                      <li>
-                        <a data-bind="attr: { href: url }, click: function(){
-                          _gaq.push(['_trackEvent',$parent.title, label, url]);
-                          return true;
-                        }, text: label" target="_blank"></a>
-                      </li>
-                      <!--/ko-->
-                    </ul>
-                    <hr data-bind="visible: currentRankDescription() || nextRankDescription()">
-                    <div data-bind="if: currentRankDescription" class="current-rank-description">Current rank: <span data-bind="	text: currentRankDescription"></span></div>
-                    <div data-bind="if: nextRankDescription" class="next-rank-description">Next rank: <span data-bind="	text: nextRankDescription"></span></div>
-                    <hr>
-                    <ul class="stats">
-                      <!--ko foreach: stats-->
-                      <li><span class="value">+<span data-bind="text: value"></span></span> <span data-bind="	text: title" class="title"></span></li>
-                      <!--/ko-->
-                    </ul>
-                    <!--ko if: talentSummary-->
-                    <div class="talent-summary">Grants <span data-bind="text: talentSummary"></span></div>
-                    <!--/ko-->
-                    <div data-bind="text: helpMessage" class="help-message"></div>
-                  </div>
-                  <div class="skill-points"><span data-bind="text: points" class="points"></span>/<span data-bind="	text: maxPoints" class="max-points"></span></div>
-                  <div data-bind="click: addPoint, rightClick: removePoint" class="hit-area"></div>
-                </div>
-              </div>
-              <!--/ko-->
-            </div>
-            <div class="avatar">
-              <div class="portrait">
-                <img data-bind="attr: { src: portraitURL }"></div>
-                <div class="portrait-controls">
-                  <button data-bind="click: choosePreviousPortrait">&laquo;</button><button data-bind="click: chooseNextPortrait">&raquo;</button>
-                </div>
-                <div class="details">
-                  <input data-bind="value: avatarName" class="h2"><div class="level">Level <span data-bind="	text: level" class="value"></span> Web Developer</div>
-                  <div data-bind="text: talentSummary" class="talent-summary"></div>
-                  <ul class="stats">
-                    <!--ko foreach: stats-->
-                    <li><span data-bind="text: title" class="title"></span>: <span data-bind="	text: value" class="value"></span></li>
-                    <!--/ko-->
-                  </ul>
-                </div>
-              </div>
+              <div class="skill-points"><span data-bind="text: points" class="points"></span>/<span data-bind="	text: maxPoints" class="max-points"></span></div>
+              <div data-bind="click: addPoint, rightClick: removePoint" class="hit-area"></div>
             </div>
           </div>
-          <div class="ltIE9-show ltIE9-warning">
-            <img src="img/logo.png" class="logo">
-            <h2>Please upgrade your browser!</h2>
-            <p>Try one of these free options:</p>
-            <ul>
-              <li><a onclick="_gaq.push(['_trackEvent','external link','upgrade browser','Chrome']);" href="http://google.com/chrome" target="_blank">Google Chrome</a></li>
-              <li><a onclick="_gaq.push(['_trackEvent','external link','upgrade browser','MSIE']);" href="http://windows.microsoft.com/en-US/internet-explorer/download-ie" target="_blank">Microsoft Internet Explorer 10</a></li>
-              <li><a onclick="_gaq.push(['_trackEvent','external link','upgrade browser','Firefox']);" href="www.mozilla.org/en-US/firefox" target="_blank">Mozilla Firefox</a></li>
-            </ul>
+          <!--/ko-->
+        </div>
+<!-- END TALENTS -->
+
+<!-- START AVATAR -->
+        <div class="avatar">
+          <div class="portrait">
+            <img data-bind="attr: { src: portraitURL }"></div>
+            <div class="portrait-controls">
+              <button data-bind="click: choosePreviousPortrait">&laquo;</button><button data-bind="click: chooseNextPortrait">&raquo;</button>
+            </div>
+            <div class="details">
+              <input data-bind="value: avatarName" class="h2"><div class="level">Level <span data-bind="	text: level" class="value"></span> Web Developer</div>
+              <div data-bind="text: talentSummary" class="talent-summary"></div>
+              <ul class="stats">
+                <!--ko foreach: stats-->
+                <li><span data-bind="text: title" class="title"></span>: <span data-bind="	text: value" class="value"></span></li>
+                <!--/ko-->
+              </ul>
+            </div>
           </div>
+        </div>
+<!-- END AVATAR -->
 
-          <script type="text/javascript">
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-8212672-14']);
-          _gaq.push(['_trackPageview']);
 
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
-          </script>
+      </div>
 
-          <script src="vendor/jquery.min.js"></script>
-          <script src="vendor/knockout.min.js"></script>
-          <script src="dist/skilltree.min.js"></script>
-          <script src="default.js"></script>
-        </body>
-        </html>
+      <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-8212672-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      </script>
+
+      <script src="vendor/jquery.min.js"></script>
+      <script src="vendor/knockout.min.js"></script>
+      <script src="dist/skilltree.min.js"></script>
+      <script src="default.js"></script>
+    </body>
+    </html>
