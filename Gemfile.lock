@@ -112,7 +112,6 @@ GEM
     gravatar-ultimate (2.0.0)
       activesupport (>= 2.3.14)
       rack
-    gravatarify (3.1.1)
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -256,7 +255,6 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   gravatar-ultimate
-  gravatarify (~> 3.1.1)
   jbuilder (~> 2.0)
   jquery-rails
   nokogiri
