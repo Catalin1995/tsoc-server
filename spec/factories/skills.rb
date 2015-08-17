@@ -3,5 +3,5 @@ FactoryGirl.define do
     title 'skill'
     description 'description'
     maxPoints 1
-  end
+  end 
 end
