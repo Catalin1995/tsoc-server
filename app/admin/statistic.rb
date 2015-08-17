@@ -1,5 +1,5 @@
-ActiveAdmin.register Link do
-  permit_params :label, :url, :skill_id
+ActiveAdmin.register Statistic do
+  permit_params :value, :title, :skill_id
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
