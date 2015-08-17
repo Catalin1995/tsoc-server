@@ -23,6 +23,7 @@ Link.create!(skill_id: skill.id, label: 'Can I use... (browser support)', url: '
 Statistic.create!(skill_id: skill.id, title: 'Charisma', value: 3)
 Rank.create!(skill_id: skill.id, description: 'You are familiar with the basics of CSS formatting and the box model.')
 Rank.create!(skill_id: skill.id, description: 'You are familiar with media queries and responsive design for adapting your design to fit different devices.')
+Talent.create!(skill_id: skill.id, description: 'Stylish')
 
 #Skill 3
 skill = Skill.create!(title: 'CSS Tools', maxPoints: 2, description: 'Preprocessors like LESS and SASS help you write more structured and efficient CSS by adding features like variables, functions, and nesting.')
@@ -34,13 +35,6 @@ Statistic.create!(skill_id: skill.id, title: 'Charisma', value: 2)
 Statistic.create!(skill_id: skill.id, title: 'Dexterity', value: 1)
 Rank.create!(skill_id: skill.id, description: 'You are familiar with variables and nesting.')
 Rank.create!(skill_id: skill.id, description: 'You can use advanced tools like mix-ins and sometimes write your own.')
-
-
-
-
-
-
-
 
 
 

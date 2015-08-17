@@ -6,11 +6,16 @@ if links != nil
 end
 
 stats = Statistic.where(:skill_id => skill.id)
-if stats != nil
+if stats.count != 0
   json.stats stats
 end
 
 rankDescriptions = Rank.where(:skill_id => skill.id)
-if rankDescriptions != nil
+if rankDescriptions.count != 0
   json.rankDescriptions rankDescriptions
+end
+
+talents = Talent.where(:skill_id => skill.id)
+if talents.count != 0
+  json.talents talents
 end
