@@ -19,3 +19,8 @@ talents = Talent.where(:skill_id => skill.id)
 if talents.count != 0
   json.talents talents
 end
+
+dependsOn = Depende.where(:skill_id => skill.id)
+if dependsOn.count != 0
+  json.dependsOn dependsOn
+end
