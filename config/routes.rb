@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'skills/index'
+
   resources :student
   resources :course
   resources :mentor
