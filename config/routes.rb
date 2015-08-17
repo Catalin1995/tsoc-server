@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'skills/index'
+  scope :api, defaults: { format: :json } do
+    resources :skills, only: [:index]
+  end
 
   resources :student
   resources :course
