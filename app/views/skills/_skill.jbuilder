@@ -12,7 +12,7 @@ Link.where(:skill_id => skill.id).each do |elem|
   link["url"] = elem.url
   links.push(link)
 end
-json.links links
+json.links links if links.count != 0
 
 Statistic.where(:skill_id => skill.id).each do |elem|
   stat = {}
@@ -20,20 +20,20 @@ Statistic.where(:skill_id => skill.id).each do |elem|
   stat["value"] = elem.value
   stats.push(stat)
 end
-json.stats stats
+json.stats stats if stats.count != 0
 
 Rank.where(:skill_id => skill.id).each do |elem|
   rankDescriptions.push(elem.description)
 end
-json.rankDescriptions rankDescriptions
+json.rankDescriptions rankDescriptions if rankDescriptions.count != 0
 
 
 Talent.where(:skill_id => skill.id).each do |elem|
   talents.push(elem.description)
 end
-json.talents talents
+json.talents talents if talents.count != 0
 
 Depende.where(:skill_id => skill.id).each do |elem|
   dependsOn.push(elem.depend_on)
 end
-json.dependsOn dependsOn
+json.dependsOn dependsOn if dependsOn.count != 0
