@@ -1,20 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="app">
 <head>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Dungeons & Developers</title>
   <meta name="description" content="An RPG-style talent tree for web developers.">
   <meta name="keywords" content="web design development rpg game talent skill">
   <link href="css/layout.css" rel="stylesheet">
+
 </head>
-<body>
+
+<body ng-app='gamersApp' ng-controller="MainPageController">
+
+  <br>
+  <br>
   <div class="ltIE9-hide">
     <div data-bind="css: { open: isOpen }" class="page">
       <header>
         <img data-bind="click: toggle" src="img/logo.png" class="logo"></header>
 
-<!-- START TALENT -->
+        <!-- START TALENT -->
         <div class="talent-tree">
           <h2 class="start-helper" data-bind="css:{active:noPointsSpent}">Start here!</h2>
           <!--ko foreach: skills-->
@@ -63,9 +69,9 @@
           </div>
           <!--/ko-->
         </div>
-<!-- END TALENTS -->
+        <!-- END TALENTS -->
 
-<!-- START AVATAR -->
+        <!-- START AVATAR -->
         <div class="avatar">
           <div class="portrait">
             <img data-bind="attr: { src: portraitURL }"></div>
@@ -83,7 +89,7 @@
             </div>
           </div>
         </div>
-<!-- END AVATAR -->
+        <!-- END AVATAR -->
 
 
       </div>
@@ -104,5 +110,13 @@
       <script src="vendor/knockout.min.js"></script>
       <script src="dist/skilltree.min.js"></script>
       <script src="default.js"></script>
+
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-route.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-resource.js"></script>
+
+      <script src="/js/app.js"></script>
+      <script src="/js/controllers/MainPageController.js"></script>
+
     </body>
     </html>
