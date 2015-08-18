@@ -1,26 +1,39 @@
-json.(skill, :id, :title, :description, :maxPoints, :created_at, :updated_at)
+json.(skill, :id, :title, :description, :maxPoints)
 
-links = Link.where(:skill_id => skill.id)
-if links != nil
-  json.links links
-end
+links = []
+stats = []
+rankDescriptions = []
+talents = []
+dependsOn = []
 
-stats = Statistic.where(:skill_id => skill.id)
-if stats.count != 0
-  json.stats stats
+Link.where(:skill_id => skill.id).each do |elem|
+  link = {}
+  link["label"] = elem.label
+  link["url"] = elem.url
+  links.push(link)
 end
+json.links links
 
-rankDescriptions = Rank.where(:skill_id => skill.id)
-if rankDescriptions.count != 0
-  json.rankDescriptions rankDescriptions
+Statistic.where(:skill_id => skill.id).each do |elem|
+  stat = {}
+  stat["title"] = elem.title
+  stat["value"] = elem.value
+  stats.push(stat)
 end
+json.stats stats
 
-talents = Talent.where(:skill_id => skill.id)
-if talents.count != 0
-  json.talents talents
+Rank.where(:skill_id => skill.id).each do |elem|
+  rankDescriptions.push(elem.description)
 end
+json.rankDescriptions rankDescriptions
 
-dependsOn = Depende.where(:skill_id => skill.id)
-if dependsOn.count != 0
-  json.dependsOn dependsOn
+
+Talent.where(:skill_id => skill.id).each do |elem|
+  talents.push(elem.description)
 end
+json.talents talents
+
+Depende.where(:skill_id => skill.id).each do |elem|
+  dependsOn.push(elem.depend_on)
+end
+json.dependsOn dependsOn
