@@ -47,31 +47,10 @@ app.controller('StudentController', function ($scope, $http, $routeParams) {
     //Custom closure
     (function($, ko, data){
 
-      //IE checks
-      function getInternetExplorerVersion() {
-        var rv = -1; // Return value assumes failure.
-        if (navigator.appName == 'Microsoft Internet Explorer') {
-          var ua = navigator.userAgent;
-          var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
-          if (re.exec(ua) != null)
-          rv = parseFloat(RegExp.$1);
-        }
-        return rv;
-      }
-      function isInvalidIEVersion() {
-        var ver = getInternetExplorerVersion();
-        if (ver > -1 && ver < 9) {
-          $('html').addClass("ltIE9");
-          return true;
-        }
-        return false;
-      }
-
       //On page load
       $(function(){
 
         //Quit if using an IE we don't like
-        if (isInvalidIEVersion()) return;
 
         //Create and bind the viewmodel
         var vm = new tft.skilltree.Calculator(data);
