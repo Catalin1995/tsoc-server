@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :student
-  resources :course
-  resources :mentor
-
+  scope 'api' do
+    resources :student
+    resources :course
+    resources :mentor
+  end
   root 'student#index'
 
   devise_for :users, ActiveAdmin::Devise.config
