@@ -33,16 +33,10 @@ app.config(['$routeProvider',
     .when('/course/:id', {
       templateUrl: 'partials/course/course.html',
       controller: 'CourseController',
+    })
+
+    .otherwise({
+      redirectTo: '/student'
     });
-    //
-    // .otherwise({
-    //   redirectTo: function(current, path, search) {
-    //     if(search.goto) {
-    //       return "/" + search.goto
-    //     } else {
-    //       return "/index.html"
-    //     }
-    //   }
-    // });
 
 }]);

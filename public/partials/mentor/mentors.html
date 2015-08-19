@@ -10,7 +10,7 @@
   <div ng-repeat="mentor in mentors track by $index">
     <div class="col-xs-3" align="center">
       <a href='#/mentor/{{mentor.id}}'>
-        <img src='http://results513.com/blog/wp-content/uploads/2014/09/mentor.jpg' height="50%" width="50%">
+        <img src='{{mentor.image.image.url}}' height="50%" width="50%">
       </a>
       <br>
       <h4><a href='#/mentor/{{course.id}}'>{{mentor.name}}</a></h4>

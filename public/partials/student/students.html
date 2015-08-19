@@ -10,7 +10,7 @@
   <div ng-repeat='student in students track by $index'>
     <div class="col-xs-3", align="center">
       <a href='#/student/{{student.id}}'>
-        <img src='http://www.wpschoolpress.com/assets/img/student.png', height='50%', width='50%'>
+        <img src='{{student.image.image.url}}', height='50%', width='50%'>
       </a>
       <h3><a href='#/student/{{student.id}}'>{{student.name}}</a></h3>
     </div>
