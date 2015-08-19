@@ -3,7 +3,7 @@ app.controller('StudentController', function ($scope, $http, $routeParams) {
   $scope.student = {};
 
   $http.get('/api/student/'+$routeParams.id).success(function(data){
-      $scope.student = data['body'];
+    $scope.student = data['body'];
   });
 
   $http.get('api/skills').success(function(data){
@@ -50,8 +50,6 @@ app.controller('StudentController', function ($scope, $http, $routeParams) {
       //On page load
       $(function(){
 
-        //Quit if using an IE we don't like
-
         //Create and bind the viewmodel
         var vm = new tft.skilltree.Calculator(data);
         ko.applyBindings(vm);
@@ -59,10 +57,6 @@ app.controller('StudentController', function ($scope, $http, $routeParams) {
         //apply konami code plugin
         $(window).konami(function () { vm.open(); vm.godMode(); });
 
-        //Allow a split second for binding before turning on animated transitions for the UI
-        setTimeout(function(){
-          $('.page').addClass('animated');
-        }, 50);
       });
 
     })(window.jQuery, window.ko, $scope.skills);
