@@ -4,16 +4,16 @@ class StudentController < ApplicationController
   end
 
   def show
-    @user = User.find(params['id'])
+    @student = User.find(params['id'])
     @badges = Badge.where(student_id: params['id'])
     @status = @badges.count
-    @size = Course.count
+    @number_of_courses = Course.count
 
     @uncompleted = Course.all
 
     @completed = []
     @badges.each do |badge|
-      @completed.push(badge)
+      @completed.push(Course.find(badge['course_id']))
       @uncompleted -= [Course.find(badge['course_id'])]
     end
   end

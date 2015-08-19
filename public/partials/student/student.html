@@ -1,0 +1,59 @@
+<div class='row'>
+
+  <div class='col-xs-3'>
+    <img src='http://www.wpschoolpress.com/assets/img/student.png' height="100%" width='100%'>
+  </div>
+
+  <div class="col-xs-9">
+
+    <h3> Email: {{student.email}} </h3>
+    <h3> Name: {{student.name}} </h3>
+    <h3> Status: {{student.status}}/{{student.number_of_courses}} <h3>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+    <font color="green">
+      <h3>
+        <p class="bg-success">
+          Completed courses:
+        </p>
+      </h3>
+    </font>
+
+    <h4>
+      <div ng-repeat='course in student.completed'>
+        <div class='col-xs-1'></div>
+
+        <div class='row'>
+          <div class='col-xs-2'>
+            <a href='#/course/{{course.id}}'><img src='http://www.keenthemes.com/preview/metronic/theme/assets/global/plugins/jcrop/demos/demo_files/image1.jpg' height="10%" width="10%"></a>
+            <a href='#/course/{{course.id}}'>{{course.title}}</a>
+          </div>
+
+        </div>
+      </div>
+    </h4>
+
+    <font color="red">
+      <h3>
+        <p class="bg-danger">
+          Uncompleted courses:
+        </p>
+      </h3>
+    </font>
+
+    <h4>
+      <div ng-repeat='course in student.uncompleted'>
+        <div class='col-xs-1'></div>
+        <div class='row'>
+          <div class='col-xs-2'>
+            <a href='#/course/{{course.id}}'><img src='http://www.keenthemes.com/preview/metronic/theme/assets/global/plugins/jcrop/demos/demo_files/image1.jpg' height="10%" width="10%"></a>
+            <a href='#/course/{{course.id}}'>{{course.title}}</a>
+          </div>
+        </div>
+      </div>
+    </h4>
+  </div>
