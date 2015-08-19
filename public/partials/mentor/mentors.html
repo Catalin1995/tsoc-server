@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="title-page">
+      <h1 class="title" align='center'> List of mentors </h1>
+    </div>
+</div>
+
+<br><br><br>
+
+<div class = "row">
+  <div ng-repeat="mentor in mentors track by $index">
+    <div class="col-xs-3" align="center">
+      <a href='#/mentor/{{mentor.id}}'>
+        <img src='http://results513.com/blog/wp-content/uploads/2014/09/mentor.jpg' height="50%" width="50%">
+      </a>
+      <br>
+      <h4><a href='#/mentor/{{course.id}}'>{{mentor.name}}</a></h4>
+    </div>
+  </div>
+</div>

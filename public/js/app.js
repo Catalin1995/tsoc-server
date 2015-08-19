@@ -5,6 +5,16 @@ app.config(['$routeProvider',
 
     $routeProvider
 
+    .when('/mentor', {
+      templateUrl: 'partials/mentor/mentors.html',
+      controller: 'MentorsController'
+    })
+
+    .when('/mentor/:id', {
+      templateUrl: 'partials/mentor/mentor.html',
+      controller: 'MentorController'
+    })
+
     .when('/course', {
       templateUrl: 'partials/course/courses.html',
       controller: 'CoursesController'

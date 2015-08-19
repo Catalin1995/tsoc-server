@@ -4,8 +4,6 @@ class MentorController < ApplicationController
   end
 
   def show
-    @user = User.find(params['id'])
-    @badges = Badge.where(student_id: params['id'])
-    @size = Course.count
+    @mentor = User.find(params['id'])
   end
 end
