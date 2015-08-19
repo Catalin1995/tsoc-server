@@ -2,6 +2,7 @@ var app = angular.module('app', ['ngRoute', 'ngResource']);
 
 app.config(['$routeProvider',
   function($routeProvider) {
+<<<<<<< HEAD
 
     $routeProvider
 
@@ -40,3 +41,12 @@ app.config(['$routeProvider',
     });
 
 }]);
+=======
+    $routeProvider
+
+    .when('/main', {
+      controller: "MainPageController"
+    });
+
+  }]);
+>>>>>>> 803972b8999ed326f33d0e0e8cb4cf53596f4262
