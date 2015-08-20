@@ -1,7 +1,7 @@
-require 'pp'
 require 'gravatar'
 class User < ActiveRecord::Base
   has_one :badge
+  has_many :dungeon_hashes
 
   validates :name, presence: true
   # Include default devise modules. Others available are:

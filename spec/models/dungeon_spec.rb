@@ -1,5 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe Dungeon, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:dungeon) { create :dungeon }
+
+  it { expect(subject).to have_many :dungeon_hashes }
+
+  it { expect(subject).to validate_presence_of :title }
+
+  it 'create dungeon' do
+    expect do
+      dungeon
+    end.to change { Dungeon.count }.by 1
+  end
+
+  it 'create without description' do
+    expect do
+      create :dungeon, description: ''
+    end.to change { Dungeon.count }.by 1
+  end
 end
