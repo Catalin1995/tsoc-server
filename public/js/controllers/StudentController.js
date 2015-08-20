@@ -14,7 +14,7 @@ app.controller('StudentController', function ($scope, $http, $routeParams) {
         numPortraits: 22,
         myName: $scope.student.name,
         emailAddress: $scope.student.email,
-        hash: '_a2b2cdef_2_iasd',
+        hash: '_abc',
         defaultStats: {
           'Charisma': 9
           , 'Dexterity': 9
