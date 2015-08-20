@@ -1,139 +1,143 @@
 <!-- <div class='row'>
 
-  <div class='col-xs-3'>
-    <img src='{{student.image.image.url}}' height="100%" width='100%'>
-  </div>
-  <div class="col-xs-9">
+<div class='col-xs-3'>
+<img src='{{student.image.image.url}}' height="100%" width='100%'>
+</div>
+<div class="col-xs-9">
 
-    <h3> Email: {{student.email}} </h3>
-    <h3> Name: {{student.name}} </h3>
-    <h3> Status: {{student.status}}/{{student.number_of_courses}} <h3>
+<h3> Email: {{student.email}} </h3>
+<h3> Name: {{student.name}} </h3>
+<h3> Status: {{student.status}}/{{student.number_of_courses}} <h3>
 
-    </div>
+</div>
 
-  </div> -->
+</div> -->
 
-  <!-- <div class="row">
-    <font color="green">
-      <h3>
-        <p class="bg-success">
-          Completed courses:
-        </p>
-      </h3>
-    </font>
+<!-- <div class="row">
+<font color="green">
+<h3>
+<p class="bg-success">
+Completed courses:
+</p>
+</h3>
+</font>
 
-    <h4>
-      <div ng-repeat='course in student.completed'>
-        <div class='col-xs-1'></div>
+<h4>
+<div ng-repeat='course in student.completed'>
+<div class='col-xs-1'></div>
 
-        <div class='row'>
-          <div class='col-xs-2'>
-            <a href='#/course/{{course.id}}'><img src='{{course.image.url}}' height="10%" width="10%"></a>
-            <a href='#/course/{{course.id}}'>{{course.title}}</a>
-          </div>
+<div class='row'>
+<div class='col-xs-2'>
+<a href='#/course/{{course.id}}'><img src='{{course.image.url}}' height="10%" width="10%"></a>
+<a href='#/course/{{course.id}}'>{{course.title}}</a>
+</div>
 
+</div>
+</div>
+</h4>
+
+<font color="red">
+<h3>
+<p class="bg-danger">
+Uncompleted courses:
+</p>
+</h3>
+</font>
+
+<h4>
+<div ng-repeat='course in student.uncompleted'>
+<div class='col-xs-1'></div>
+<div class='row'>
+<div class='col-xs-2'>
+<a href='#/course/{{course.id}}'><img src='{{course.image.url}}' height="10%" width="10%"></a>
+<a href='#/course/{{course.id}}'>{{course.title}}</a>
+</div>
+</div>
+</div>
+</h4>
+</div> -->
+
+<br>
+<br>
+<div class="ltIE9-hide">
+  <div data-bind="css: { open: isOpen }" class="page">
+    <header>
+
+      <!-- START TALENT -->
+      <div class="talent-tree">
+        <h2 class="start-helper" data-bind="css:{active:noPointsSpent}">Start here!</h2>
+        <!--ko foreach: skills-->
+        <!--ko if: hasDependencies-->
+        <div data-bind="css: { 'can-add-points': canAddPoints, 'has-points': hasPoints, 'has-max-points': hasMaxPoints }, attr: { 'data-skill-id': id }" class="skill">
+          <div data-bind="css: { active: dependenciesFulfilled }" class="skill-dependency"></div>
         </div>
-      </div>
-    </h4>
-
-    <font color="red">
-      <h3>
-        <p class="bg-danger">
-          Uncompleted courses:
-        </p>
-      </h3>
-    </font>
-
-    <h4>
-      <div ng-repeat='course in student.uncompleted'>
-        <div class='col-xs-1'></div>
-        <div class='row'>
-          <div class='col-xs-2'>
-            <a href='#/course/{{course.id}}'><img src='{{course.image.url}}' height="10%" width="10%"></a>
-            <a href='#/course/{{course.id}}'>{{course.title}}</a>
+        <!--/ko-->
+        <!--/ko-->
+        <!--ko foreach: skills-->
+        <div data-bind="css: { 'can-add-points': canAddPoints, 'has-points': hasPoints, 'has-max-points': hasMaxPoints }, attr: { 'data-skill-id': id }" class="skill">
+          <div class="icon-container">
+            <div class="icon"></div>
           </div>
-        </div>
-      </div>
-    </h4>
-  </div> -->
-
-
-
-  <br>
-  <br>
-  <div class="ltIE9-hide">
-    <div data-bind="css: { open: isOpen }" class="page">
-      <header>
-
-        <!-- START TALENT -->
-        <div class="talent-tree">
-          <h2 class="start-helper" data-bind="css:{active:noPointsSpent}">Start here!</h2>
-          <!--ko foreach: skills-->
-          <!--ko if: hasDependencies-->
-          <div data-bind="css: { 'can-add-points': canAddPoints, 'has-points': hasPoints, 'has-max-points': hasMaxPoints }, attr: { 'data-skill-id': id }" class="skill">
-            <div data-bind="css: { active: dependenciesFulfilled }" class="skill-dependency"></div>
-          </div>
-          <!--/ko-->
-          <!--/ko-->
-          <!--ko foreach: skills-->
-          <div data-bind="css: { 'can-add-points': canAddPoints, 'has-points': hasPoints, 'has-max-points': hasMaxPoints }, attr: { 'data-skill-id': id }" class="skill">
-            <div class="icon-container">
-              <div class="icon"></div>
+          <div class="frame">
+            <div class="tool-tip">
+              <h3 data-bind="text: title" class="skill-name"></h3>
+              <div data-bind="html: description" class="skill-description"></div>
+              <ul class="skill-links">
+                <!--ko foreach: links-->
+                <li>
+                  <a data-bind="attr: { href: url }, click: function(){
+                    _gaq.push(['_trackEvent',$parent.title, label, url]);
+                    return true;
+                  }, text: label" target="_blank"></a>
+                </li>
+                <!--/ko-->
+              </ul>
+              <hr data-bind="visible: currentRankDescription() || nextRankDescription()">
+              <div data-bind="if: currentRankDescription" class="current-rank-description">Current rank: <span data-bind="	text: currentRankDescription"></span></div>
+              <div data-bind="if: nextRankDescription" class="next-rank-description">Next rank: <span data-bind="	text: nextRankDescription"></span></div>
+              <hr>
+              <ul class="stats">
+                <!--ko foreach: stats-->
+                <li><span class="value">+<span data-bind="text: value"></span></span> <span data-bind="	text: title" class="title"></span></li>
+                <!--/ko-->
+              </ul>
+              <!--ko if: talentSummary-->
+              <div class="talent-summary">Grants <span data-bind="text: talentSummary"></span></div>
+              <!--/ko-->
+              <div data-bind="text: helpMessage" class="help-message"></div>
             </div>
-            <div class="frame">
-              <div class="tool-tip">
-                <h3 data-bind="text: title" class="skill-name"></h3>
-                <div data-bind="html: description" class="skill-description"></div>
-                <ul class="skill-links">
-                  <!--ko foreach: links-->
+            <div class="skill-points"><span data-bind="text: points" class="points"></span>/<span data-bind="	text: maxPoints" class="max-points"></span></div>
+            <div data-bind="click: addPoint, rightClick: removePoint" class="hit-area"></div>
+          </div>
+        </div>
+        <!--/ko-->
+      </div>
+      <!-- END TALENTS -->
+
+      <!-- START AVATAR -->
+      <div class="avatar">
+        <div class="portrait">
+          <img data-bind="attr: { src: portraitUrl }"></div>
+          <div class="portrait-controls">
+            <!-- <button data-bind="click: choosePreviousPortrait">&laquo;</button><button data-bind="click: chooseNextPortrait">&raquo;</button> -->
+            <button data-bind="click: newbMode">New</button>
+            <button data-bind="click: godMode">God</button>
+          </div>
+          <div class="details">
+            <h2><span data-bind="text: avatarName"></h2>
+              <h5><span data-bind="text: emailAddress"></span><h5>
+                <div class="level">Level <span data-bind="text: level" class="value"></span> Web Developer</div>
+                <div data-bind="text: talentSummary" class="talent-summary"></div>
+                <ul class="stats">
+                  <!--ko foreach: stats-->
                   <li>
-                    <a data-bind="attr: { href: url }, click: function(){
-                      _gaq.push(['_trackEvent',$parent.title, label, url]);
-                      return true;
-                    }, text: label" target="_blank"></a>
+                    <span data-bind="text: title" class="title"></span>:
+                    <span data-bind="	text: value" class="value"></span>
                   </li>
                   <!--/ko-->
                 </ul>
-                <hr data-bind="visible: currentRankDescription() || nextRankDescription()">
-                <div data-bind="if: currentRankDescription" class="current-rank-description">Current rank: <span data-bind="	text: currentRankDescription"></span></div>
-                <div data-bind="if: nextRankDescription" class="next-rank-description">Next rank: <span data-bind="	text: nextRankDescription"></span></div>
-                <hr>
-                <ul class="stats">
-                  <!--ko foreach: stats-->
-                  <li><span class="value">+<span data-bind="text: value"></span></span> <span data-bind="	text: title" class="title"></span></li>
-                  <!--/ko-->
-                </ul>
-                <!--ko if: talentSummary-->
-                <div class="talent-summary">Grants <span data-bind="text: talentSummary"></span></div>
-                <!--/ko-->
-                <div data-bind="text: helpMessage" class="help-message"></div>
               </div>
-              <div class="skill-points"><span data-bind="text: points" class="points"></span>/<span data-bind="	text: maxPoints" class="max-points"></span></div>
-              <div data-bind="click: addPoint, rightClick: removePoint" class="hit-area"></div>
             </div>
           </div>
-          <!--/ko-->
+          <!-- END AVATAR -->
         </div>
-        <!-- END TALENTS -->
-
-        <!-- START AVATAR -->
-        <div class="avatar">
-          <div class="portrait">
-            <img data-bind="attr: { src: portraitURL }"></div>
-            <div class="portrait-controls">
-              <button data-bind="click: choosePreviousPortrait">&laquo;</button><button data-bind="click: chooseNextPortrait">&raquo;</button>
-
-            </div>
-            <div class="details">
-              <input data-bind="value: avatarName" class="h2"><div class="level">Level <span data-bind="	text: level" class="value"></span> Web Developer</div>
-              <div data-bind="text: talentSummary" class="talent-summary"></div>
-              <ul class="stats">
-                <!--ko foreach: stats-->
-                <li><span data-bind="text: title" class="title"></span>: <span data-bind="	text: value" class="value"></span></li>
-                <!--/ko-->
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- END AVATAR -->
-      </div>
