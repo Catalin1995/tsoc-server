@@ -1,5 +1,7 @@
 #Skill 1
-skill1 = Skill.create!(title: 'HTML', description: 'The main language for creating web pages, HTML is written in the form of tags enclosed in angle brackets (like &lt;html&gt;).', maxPoints: 2)
+dungeon = Dungeon.create!(title: 'Web Development Mastery')
+
+skill1 = Skill.create!(dungeon_id: dungeon.id, title: 'HTML', description: 'The main language for creating web pages, HTML is written in the form of tags enclosed in angle brackets (like &lt;html&gt;).', maxPoints: 2)
 Link.create!(skill_id: skill1.id, label: 'HTML.net Tutorials', url: 'http://www.html.net/tutorials/html/')
 Link.create!(skill_id: skill1.id, label: 'Sublime Text 3, a great code editor', url: 'http://www.sublimetext.com/')
 Statistic.create!(skill_id: skill1.id, title: 'Intellect', value: 1)
@@ -9,7 +11,7 @@ Rank.create!(skill_id: skill1.id, description: 'You understand how to create and
 Rank.create!(skill_id: skill1.id, description: 'You understand how to link pages together, design multi-column layouts, and work with form fields and media elements.')
 
 #Skill 2
-skill2 = Skill.create!(title: 'CSS', description: 'Cascading Style Sheets (CSS) is a language for styling web pages.  CSS rules target elements in the HTML document to specify the presentation, such as font, color, spacing, and size.', maxPoints: 2)
+skill2 = Skill.create!(dungeon_id: dungeon.id, title: 'CSS', description: 'Cascading Style Sheets (CSS) is a language for styling web pages.  CSS rules target elements in the HTML document to specify the presentation, such as font, color, spacing, and size.', maxPoints: 2)
 Link.create!(skill_id: skill2.id, label: 'CSS Tutorials', url: 'http://www.htmldog.com/guides/css/')
 Link.create!(skill_id: skill2.id, label: 'Can I use... (browser support)', url: 'http://caniuse.com/#cats=CSS')
 Statistic.create!(skill_id: skill2.id, title: 'Charisma', value: 3)
@@ -19,7 +21,7 @@ Talent.create!(skill_id: skill2.id, description: 'Stylish')
 Depende.create!(skill_id: skill2.id, depend_on: skill1.id)
 
 #Skill 3
-skill3 = Skill.create!(title: 'CSS Tools', maxPoints: 2, description: 'Preprocessors like LESS and SASS help you write more structured and efficient CSS by adding features like variables, functions, and nesting.')
+skill3 = Skill.create!(dungeon_id: dungeon.id, title: 'CSS Tools', maxPoints: 2, description: 'Preprocessors like LESS and SASS help you write more structured and efficient CSS by adding features like variables, functions, and nesting.')
 Link.create!(skill_id: skill3.id, label: 'Sass vs. LESS', url: 'http://css-tricks.com/sass-vs-less/')
 Link.create!(skill_id: skill3.id, label: 'LESS', url: 'http://lesscss.org/')
 Link.create!(skill_id: skill3.id, label: 'Sass', url: 'http://sass-lang.com/')
@@ -31,12 +33,12 @@ Rank.create!(skill_id: skill3.id, description: 'You can use advanced tools like 
 Depende.create!(skill_id: skill3.id, depend_on: skill2.id)
 
 #Skill 4
-skill4 = Skill.create!(title: 'Web Design Mastery', maxPoints: 1, description: 'You can bring design ideas to life by translating them into the requisite HTML document with CSS styles.')
+skill4 = Skill.create!(dungeon_id: dungeon.id, title: 'Web Design Mastery', maxPoints: 1, description: 'You can bring design ideas to life by translating them into the requisite HTML document with CSS styles.')
 Depende.create!(skill_id: skill4.id, depend_on: skill2.id)
 Statistic.create!(skill_id: skill4.id, title: 'Charisma', value: 10)
 
 #Skill 5
-skill5 = Skill.create!(title: 'jQuery Effects', maxPoints: 3, description: 'jQuery provides techniques and methods for client-side manipulation of the web page elements.')
+skill5 = Skill.create!(dungeon_id: dungeon.id, title: 'jQuery Effects', maxPoints: 3, description: 'jQuery provides techniques and methods for client-side manipulation of the web page elements.')
 Depende.create!(skill_id: skill5.id, depend_on: skill4.id)
 Link.create!(skill_id: skill5.id, label: 'Codecademy jQuery', url: 'http://www.codecademy.com/tracks/jquery')
 Link.create!(skill_id: skill5.id, label: 'jQuery Category: Manipulation', url: 'http://api.jquery.com/category/manipulation/')
@@ -49,7 +51,7 @@ Statistic.create!(skill_id: skill5.id, title: 'Charisma', value: 2)
 Statistic.create!(skill_id: skill5.id, title: 'Dexterity', value: 1)
 
 #Skill 6
-skill6 = Skill.create!(title: 'Search Engine Optimization (SEO)', maxPoints: 1, description: 'The process of affecting the ranking/visibility of a website or web page in a search engines results.')
+skill6 = Skill.create!(dungeon_id: dungeon.id, title: 'Search Engine Optimization (SEO)', maxPoints: 1, description: 'The process of affecting the ranking/visibility of a website or web page in a search engines results.')
 Depende.create(skill_id: skill6.id, depend_on: skill1.id)
 Link.create!(skill_id: skill6.id, label: 'Search Engine Optimization (Google)', url: 'https://support.google.com/webmasters/answer/35291')
 Link.create!(skill_id: skill6.id, label: 'Webmaster Tools (Google)', url: 'http://www.google.com/webmasters/tools/')
@@ -58,7 +60,7 @@ Statistic.create!(skill_id: skill6.id, title: 'Intellect', value: 2)
 Statistic.create!(skill_id: skill6.id, title: 'Wisdom', value: 1)
 
 #Skill 7
-skill7 = Skill.create!(title: 'Analytics', maxPoints: 1, description: 'Analytics provide performance data about a website as well as information that is usable to measure the success of SEO.')
+skill7 = Skill.create!(dungeon_id: dungeon.id, title: 'Analytics', maxPoints: 1, description: 'Analytics provide performance data about a website as well as information that is usable to measure the success of SEO.')
 Depende.create(skill_id: skill7.id, depend_on: skill6.id)
 Link.create!(skill_id: skill7.id, label: '10 SEO Analysis Tools You Should Be Using', url: 'http://www.webgnomes.org/blog/10-seo-analysis-tools/')
 Link.create!(skill_id: skill7.id, label: 'Configuring SEO data in Analytics (Google)', url: 'https://support.google.com/analytics/answer/1308621?hl=en')
@@ -69,7 +71,7 @@ Statistic.create!(skill_id: skill7.id, title: 'Wisdom', value: 2)
 Talent.create!(skill_id: skill7.id, description: 'Crafty')
 
 #Skill 8
-skill8 = Skill.create!(title: 'Javascript', maxPoints: 1, description: 'JavaScript is the dominant language for client-side programming.  It executes in the user&rsquo;s browser to manipulate the HTML document after it has loaded.  This may be as simple as showing hidden elements, or more advanced like contacting the server to load more data.')
+skill8 = Skill.create!(dungeon_id: dungeon.id, title: 'Javascript', maxPoints: 1, description: 'JavaScript is the dominant language for client-side programming.  It executes in the user&rsquo;s browser to manipulate the HTML document after it has loaded.  This may be as simple as showing hidden elements, or more advanced like contacting the server to load more data.')
 Depende.create!(skill_id: skill8.id, depend_on: skill1.id)
 Link.create!(skill_id: skill8.id, label: 'JavaScript Tutorial', url: 'http://www.htmldog.com/guides/javascript/')
 Link.create!(skill_id: skill8.id, label: 'Codecademy JavaScript', url: 'http://www.codecademy.com/tracks/javascript')
@@ -78,7 +80,7 @@ Link.create!(skill_id: skill8.id, label: 'Douglas Crockford on Javascript', url:
 Statistic.create!(skill_id: skill8.id, title: 'Dexterity', value: 3)
 
 #Skill 9
-skill9 = Skill.create!(title: 'JS Libraries & Frameworks', maxPoints: 2, description: 'Once you&rsquo;re comfortable with the JavaScript language, there&rsquo;s a multitude of libraries and frameworks to accomplish common tasks and enhance your development.')
+skill9 = Skill.create!(dungeon_id: dungeon.id, title: 'JS Libraries & Frameworks', maxPoints: 2, description: 'Once you&rsquo;re comfortable with the JavaScript language, there&rsquo;s a multitude of libraries and frameworks to accomplish common tasks and enhance your development.')
 Depende.create!(skill_id: skill9.id, depend_on: skill8.id)
 Rank.create!(skill_id: skill9.id, description: 'You tap into libraries like jQuery, MooTools, Prototype, Dojo, and YUI to streamline your work.')
 Rank.create!(skill_id: skill9.id, description: 'You use frameworks like KnockoutJS, Ember.js, AngularJS, and Backbone.js to structure complex frontend functionality.')
@@ -88,19 +90,19 @@ Talent.create!(skill_id: skill9.id, description: 'Nimble')
 
 #Skill 10
 #TODO: description can't be blank
-skill10 = Skill.create!(title: 'Front-end Development Mastery', description: 'test', maxPoints: 1)
+skill10 = Skill.create!(dungeon_id: dungeon.id, title: 'Front-end Development Mastery', description: 'test', maxPoints: 1)
 Depende.create!(skill_id: skill10.id, depend_on: skill9.id)
 Statistic.create!(skill_id: skill9.id, title: 'Dexterity', value: 2)
 Statistic.create!(skill_id: skill8.id, title: 'Dexterity', value: 10)
 
 #Skill 11
-skill11 = Skill.create!(title: 'Server-side Programming', maxPoints: 1, description: 'Developing items (code) that executes on the server (server-side) instead of the user\'s (client\'s) machine.')
+skill11 = Skill.create!(dungeon_id: dungeon.id, title: 'Server-side Programming', maxPoints: 1, description: 'Developing items (code) that executes on the server (server-side) instead of the user\'s (client\'s) machine.')
 Depende.create!(skill_id: skill11.id, depend_on: skill1.id)
 Link.create!(skill_id: skill11.id, label: 'Server-side scripting Wiki', url: 'http://en.wikipedia.org/wiki/Server-side_scripting')
 Statistic.create!(skill_id: skill11.id, title: 'Strength', value: 3)
 
 #Skill 12
-skill12 = Skill.create!(title: 'Server-side Frameworks', maxPoints: 1,  description: 'These are software frameworks and collection of packages or modules that allow developers to write applications or services without having to handle the overhead of common activities and lower level details, such as session management, database access, etc.')
+skill12 = Skill.create!(dungeon_id: dungeon.id, title: 'Server-side Frameworks', maxPoints: 1,  description: 'These are software frameworks and collection of packages or modules that allow developers to write applications or services without having to handle the overhead of common activities and lower level details, such as session management, database access, etc.')
 Depende.create!(skill_id: skill12.id, depend_on: skill11.id)
 Link.create!(skill_id: skill12.id, label: 'Comparison of web application frameworks', url: 'http://en.wikipedia.org/wiki/Comparison_of_web_application_frameworks')
 Link.create!(skill_id: skill12.id, label: 'Web development - server side coding', url: 'http://en.wikipedia.org/wiki/Web_development#Server_side_coding')
@@ -109,7 +111,7 @@ Statistic.create!(skill_id: skill12.id, title: 'Wisdom', value: 1)
 Talent.create(skill_id: skill12.id, description: 'Beefcake')
 
 #Skill 13
-skill13 = Skill.create!(title: 'Database Authoring', maxPoints: 2, description: 'Databases are powerful engines for storing, organizing, and retrieving data.  There is a wide variety of database platforms to choose from.  The most widely used database language is Structured Query Language (SQL).  Properly architecting your data will facilitate your site&rsquo;s server-side programming.')
+skill13 = Skill.create!(dungeon_id: dungeon.id, title: 'Database Authoring', maxPoints: 2, description: 'Databases are powerful engines for storing, organizing, and retrieving data.  There is a wide variety of database platforms to choose from.  The most widely used database language is Structured Query Language (SQL).  Properly architecting your data will facilitate your site&rsquo;s server-side programming.')
 Depende.create!(skill_id: skill13.id, depend_on: skill1.id)
 Link.create!(skill_id: skill13.id, label: 'w3schools.com SQL Tutorial', url: 'http://www.w3schools.com/sql/')
 Link.create!(skill_id: skill13.id, label: 'SQLZOO Interactive SQL Tutorial', url: 'http://sqlzoo.net/wiki/')
@@ -119,7 +121,7 @@ Rank.create!(skill_id: skill13.id, description: 'You understand how relational d
 Statistic.create!(skill_id: skill13.id, title: 'Strength', value: 3)
 
 #Skill 14
-skill14 = Skill.create!(title: 'Advanced DB Management', maxPoints: 2, description: 'Besides creating basic tables and relating data, databases allow for the creation of stored procedures, sets of SQL statements that are stored in the database, and user-defined functions (UDFs) , functions that can be used in SQL statements.  Just architecting the database is not enough.  The database also needs to be optimized or tuned to increase performance.')
+skill14 = Skill.create!(dungeon_id: dungeon.id, title: 'Advanced DB Management', maxPoints: 2, description: 'Besides creating basic tables and relating data, databases allow for the creation of stored procedures, sets of SQL statements that are stored in the database, and user-defined functions (UDFs) , functions that can be used in SQL statements.  Just architecting the database is not enough.  The database also needs to be optimized or tuned to increase performance.')
 Depende.create(skill_id: skill14.id, depend_on: skill13.id)
 Link.create!(skill_id: skill14.id, label: 'Stored Procedure - Wiki', url: 'http://en.wikipedia.org/wiki/Stored_procedure')
 Link.create!(skill_id: skill14.id, label: 'User-defined function Wiki' , url: 'http://en.wikipedia.org/wiki/User_defined_function')
@@ -134,13 +136,13 @@ Statistic.create!(skill_id: skill14.id, title: 'Dexterity', value: 1)
 Talent.create!(skill_id: skill14.id, description: 'XXL Knapsack')
 
 #Skill 15
-skill15 = Skill.create!(title: 'Server-side Development Mastery', maxPoints: 1, description: 'You are capable of architecting and building an application\'s backend to efficiently store and retrieve data.')
+skill15 = Skill.create!(dungeon_id: dungeon.id, title: 'Server-side Development Mastery', maxPoints: 1, description: 'You are capable of architecting and building an application\'s backend to efficiently store and retrieve data.')
 Depende.create!(skill_id: skill15.id, depend_on: skill12.id)
 Depende.create!(skill_id: skill15.id, depend_on: skill14.id)
 Statistic.create!(skill_id: skill15.id, title: 'Strength', value: 10)
 
 #Skill 16
-skill16 = Skill.create!(title: 'User Authentication and Authorization', maxPoints: 1, description: 'Authentication is the process determining whether someone or something is who or what it is declared to be. Authorization is the process of determining if a user is allowed to perform an action or has access to a resource.')
+skill16 = Skill.create!(dungeon_id: dungeon.id, title: 'User Authentication and Authorization', maxPoints: 1, description: 'Authentication is the process determining whether someone or something is who or what it is declared to be. Authorization is the process of determining if a user is allowed to perform an action or has access to a resource.')
 Depende.create!(skill_id: skill16.id, depend_on: skill15.id)
 Link.create!(skill_id: skill16.id, label: 'ASP.NET authentication and authorization - CodeProject', url: 'http://www.codeproject.com/Articles/98950/ASP-NET-authentication-and-authorization')
 Link.create!(skill_id: skill16.id, label: 'OpenID Wiki (authentication)', url: 'http://en.wikipedia.org/wiki/OpenID')
@@ -151,7 +153,7 @@ Talent.create!(skill_id: skill16.id, description: 'Truthseeker')
 
 #TODO: depende is depend
 #Skill 17
-skill17 = Skill.create!(title: 'AJAX & APIs', maxPoints: 1, description: 'Technology exists to allow separate systems to communicate between each other in various ways as well as allowing interfaces to be more intractive.  These include the use of Asynchronous JavaScript and XML (AJAX), usually on the client-side, to communicate with an external system.  Other technologies, such as web services, are used to setup end-points for allowing communication with an external system.')
+skill17 = Skill.create!(dungeon_id: dungeon.id, title: 'AJAX & APIs', maxPoints: 1, description: 'Technology exists to allow separate systems to communicate between each other in various ways as well as allowing interfaces to be more intractive.  These include the use of Asynchronous JavaScript and XML (AJAX), usually on the client-side, to communicate with an external system.  Other technologies, such as web services, are used to setup end-points for allowing communication with an external system.')
 Depende.create!(skill_id: skill17.id, depend_on: skill10.id)
 Depende.create!(skill_id: skill17.id, depend_on: skill15.id)
 Link.create!(skill_id: skill17.id, label: 'AJAX (programming) Wiki', url: 'http://en.wikipedia.org/wiki/Ajax_(programming)')
@@ -165,7 +167,7 @@ Statistic.create!(skill_id: skill17.id, title: 'Intellect', value: 1)
 Talent.create!(skill_id: skill17.id, description: 'Mindweaver')
 
 #Skill 18
-skill18 = Skill.create!(title: 'User Discovery', maxPoints: 2, description: 'One of the first steps taken before anything is designed is to determine what the client (both the site requestor and the site user) wants and/or needs. Techniques include simple sketching, card-sortting and experience mapping.')
+skill18 = Skill.create!(dungeon_id: dungeon.id, title: 'User Discovery', maxPoints: 2, description: 'One of the first steps taken before anything is designed is to determine what the client (both the site requestor and the site user) wants and/or needs. Techniques include simple sketching, card-sortting and experience mapping.')
 Rank.create!(skill_id: skill18.id, description: 'You know the right questions to ask, and use sketches to confirm your ideas.')
 Rank.create!(skill_id: skill18.id, description: 'You use advanced techniques like experience mapping to lead conversations with stakeholders.')
 Link.create!(skill_id: skill18.id, label: 'The anatomy of an experience map', url: 'http://www.adaptivepath.com/ideas/the-anatomy-of-an-experience-map')
@@ -174,7 +176,7 @@ Statistic.create!(skill_id: skill18.id, title: 'Charisma', value: 1)
 Talent.create!(skill_id: skill18.id, description: 'Mindreader')
 
 #Skill 19
-skill19 = Skill.create!(title: 'Graphic Design', maxPoints: 2, description: 'Graphic design is about aesthetics and usability. Good designs are inviting and easy to understand, by solid use of color, typography, balance, hierarchy and white space.')
+skill19 = Skill.create!(dungeon_id: dungeon.id, title: 'Graphic Design', maxPoints: 2, description: 'Graphic design is about aesthetics and usability. Good designs are inviting and easy to understand, by solid use of color, typography, balance, hierarchy and white space.')
 Rank.create(skill_id: skill19.id, description: 'You can create a balanced, complementary layout with a clear message.')
 Rank.create(skill_id: skill19.id, description: 'You understand how to create a strikingly unique design, which supports traditional design values as well as your underlying message.')
 Depende.create!(skill_id: skill19.id, depend_on: skill18.id)
@@ -186,14 +188,14 @@ Statistic.create!(skill_id: skill19.id, title: 'Charisma', value: 3)
 Talent.create!(skill_id: skill19.id, description: 'Artistic')
 
 #Skill 20
-skill20 = Skill.create!(title: 'Graphic Design Tools', maxPoints: 1, description: 'Software such as Photoshop and devices like drawing tablets are used to create layouts, work with type, touch-up photos, and other activities to add professional polish to your designs.')
+skill20 = Skill.create!(dungeon_id: dungeon.id, title: 'Graphic Design Tools', maxPoints: 1, description: 'Software such as Photoshop and devices like drawing tablets are used to create layouts, work with type, touch-up photos, and other activities to add professional polish to your designs.')
 Depende.create!(skill_id: skill20.id, depend_on: skill19.id)
 Link.create!(skill_id: skill20.id, label: '100 Top Tools for Graphic Designers | Graphic Design Classes', url: 'http://graphicdesignclasses.net/design-tools/')
 Statistic.create!(skill_id: skill20.id, title: 'Charisma', value: 2)
 Statistic.create!(skill_id: skill20.id, title: 'Intellect', value: 1)
 
 #Skill 21
-skill21 = Skill.create!(title: 'Prototypes', maxPoints: 1, description: 'Modeling a new design without building all the underlying functionality is a fast and efficient way to convey ideas, test a new concept, and identify problems you didn\'t anticipate.')
+skill21 = Skill.create!(dungeon_id: dungeon.id, title: 'Prototypes', maxPoints: 1, description: 'Modeling a new design without building all the underlying functionality is a fast and efficient way to convey ideas, test a new concept, and identify problems you didn\'t anticipate.')
 Depende.create!(skill_id: skill21.id, depend_on: skill18.id)
 Link.create!(skill_id: skill21.id, label: 'Design Better And Faster With Rapid Prototyping', url: 'http://www.smashingmagazine.com/2010/06/16/design-better-faster-with-rapid-prototyping/')
 Link.create!(skill_id: skill21.id, label: '16 Design Tools for Prototyping and Wireframing', url: 'http://www.sitepoint.com/tools-prototyping-wireframing/')
@@ -202,14 +204,14 @@ Statistic.create!(skill_id: skill21.id, title: 'Intellect', value: 2)
 Talent.create!(skill_id: skill21.id, description: 'Conjurer')
 
 #Skill 22
-skill22 = Skill.create!(title: 'User Experience Design Mastery', maxPoints: 1, description: 'You are capable of converting project requirements to an attractive design that promotes a pleasant user experience.')
+skill22 = Skill.create!(dungeon_id: dungeon.id, title: 'User Experience Design Mastery', maxPoints: 1, description: 'You are capable of converting project requirements to an attractive design that promotes a pleasant user experience.')
 Depende.create!(skill_id: skill22.id, depend_on: skill19.id)
 Depende.create!(skill_id: skill22.id, depend_on: skill21.id)
 Statistic.create!(skill_id: skill22.id, title: 'Wisdom', value: 1)
 Statistic.create!(skill_id: skill22.id, title: 'Charisma', value: 2)
 
 #Skill 23
-skill23 = Skill.create!(title: 'User Testing', maxPoints: 1, description: 'It is a technique, also known as usability testing, that is used to evaluate a website by testing it on users.')
+skill23 = Skill.create!(dungeon_id: dungeon.id, title: 'User Testing', maxPoints: 1, description: 'It is a technique, also known as usability testing, that is used to evaluate a website by testing it on users.')
 Depende.create!(skill_id: skill23.id, depend_on: skill22.id)
 Link.create!(skill_id: skill23.id, label: 'My big list of 24 Web Site Usability Testing Tools', url: 'http://www.usefulusability.com/24-usability-testing-tools/')
 Link.create!(skill_id: skill23.id, label: 'Usability Testing Wiki', url: 'http://en.wikipedia.org/wiki/Usability_testing')
@@ -218,7 +220,7 @@ Statistic.create!(skill_id: skill23.id, title: 'Wisdom', value: 2)
 Talent.create!(skill_id: skill23.id, description: 'Alchemist')
 
 #Skill 24
-skill24 = Skill.create!(title: 'Server Administration', maxPoints: 2, description: 'Even the simplest web applications will require a server to run them.  There are several popular and fully-featured web servers to choose from, though your application\'s server-side programming language may limit your options.  Learning to manage and configure your web server will help you keep your site up and running smoothly.')
+skill24 = Skill.create!(dungeon_id: dungeon.id, title: 'Server Administration', maxPoints: 2, description: 'Even the simplest web applications will require a server to run them.  There are several popular and fully-featured web servers to choose from, though your application\'s server-side programming language may limit your options.  Learning to manage and configure your web server will help you keep your site up and running smoothly.')
 Link.create!(skill_id: skill24.id, label: 'Comparison of web server software Wiki', url: 'http://en.wikipedia.org/wiki/Comparison_of_web_server_software')
 Link.create!(skill_id: skill24.id, label: 'Apache mod_rewrite - Apache HTTP Server', url: 'http://httpd.apache.org/docs/2.4/rewrite/')
 Rank.create!(skill_id: skill24.id, description: 'You are capable of setting up your application in a new environment.')
@@ -227,7 +229,7 @@ Statistic.create!(skill_id: skill24.id, title: 'Fortitude', value: 3)
 Talent.create(skill_id: skill24.id, description: 'Stewardship')
 
 #Skill 25
-skill25 = Skill.create!(title: 'Deployment', maxPoints: 2, description: 'Before sharing your application with the world, follow the best practices for security and performance on the server.')
+skill25 = Skill.create!(dungeon_id: dungeon.id, title: 'Deployment', maxPoints: 2, description: 'Before sharing your application with the world, follow the best practices for security and performance on the server.')
 Depende.create!(skill_id: skill25.id, depend_on: skill24.id)
 Link.create!(skill_id: skill25.id, label: 'SSL Certificate Installation', url: 'http://www.sslshopper.com/ssl-certificate-installation.html')
 Link.create!(skill_id: skill25.id, label: 'Minimize payload size - Google Developers', url: 'https://developers.google.com/speed/docs/best-practices/payload')
@@ -239,7 +241,7 @@ Statistic.create!(skill_id: skill25.id, title: 'Dexterity', value: 1)
 Talent.create!(skill_id: skill25.id, description: 'Spectral Guide')
 
 #Skill 26
-skill26 = Skill.create!(title: 'Web Development Mastery', maxPoints: 1, description: 'This refers to designing, creating, and maintaining a website.')
+skill26 = Skill.create!(dungeon_id: dungeon.id, title: 'Web Development Mastery', maxPoints: 1, description: 'This refers to designing, creating, and maintaining a website.')
 Depende.create!(skill_id: skill26.id, depend_on: skill4.id)
 Depende.create!(skill_id: skill26.id, depend_on: skill7.id)
 Depende.create!(skill_id: skill26.id, depend_on: skill10.id)
