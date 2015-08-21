@@ -9,12 +9,10 @@ app.controller('StudentController', function ($scope, $http, $routeParams) {
       $scope.dungeon = data['body']
 
       $scope.skills = {
-        learnTemplate: 'Learn {n} to unlock.',
         portraitUrl: 'img/portraits/portrait-1.jpg',
-        numPortraits: 22,
         myName: $scope.student.name,
         emailAddress: $scope.student.email,
-        hash: '_abc',
+        hash: '_',
         defaultStats: {
           'Charisma': 9
           , 'Dexterity': 9
