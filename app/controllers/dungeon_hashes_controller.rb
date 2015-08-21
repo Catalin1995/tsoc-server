@@ -9,4 +9,9 @@ class DungeonHashesController < ApplicationController
       end
     end
   end
+
+  def update
+    @dungeon_hash = DungeonHash.where(dungeon_id: params[:dungeon_id], user_id: params[:student_id]).first
+    @dungeon_hash.update_attributes!(:dungeon_hash => params[:hash])
+  end
 end

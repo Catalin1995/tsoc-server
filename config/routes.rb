@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :skills, only: [:index]
     resources :student do
       resources :dungeons, only: [:show] do
-        resources :dungeon_hashes, only: [:index]
+        resources :dungeon_hashes
       end
     end
   end
