@@ -9,6 +9,10 @@ skills.each do |skill|
   rankDescriptions = []
   talents = []
   dependsOn = []
+  elem['id'] = skill.id
+  elem['title'] = skill.title
+  elem['description'] = skill.description
+  elem['maxPoints'] = skill.maxPoints
 
   Link.where(:skill_id => skill.id).each do |elem|
     link = {}
