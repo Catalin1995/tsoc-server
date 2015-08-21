@@ -4,8 +4,10 @@ RSpec.describe Dungeon, type: :model do
   let(:dungeon) { create :dungeon }
 
   it { expect(subject).to have_many :skills }
+  it { expect(subject).to belong_to :dungeon_hash }
 
   it { expect(subject).to validate_presence_of :title }
+  it { expect(subject).to validate_presence_of :dungeon_hash }
 
   it 'create dungeon' do
     expect do

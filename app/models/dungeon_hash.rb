@@ -1,8 +1,7 @@
 class DungeonHash < ActiveRecord::Base
-  belongs_to :dungeon
+  has_one :dungeon
   belongs_to :user
 
   validates :user, presence: true
-  validates :dungeon, presence: true
   validates :dungeon_hash, presence: true
 end

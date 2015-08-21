@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 20150821075045) do
   create_table "dungeon_hashes", force: :cascade do |t|
     t.string   "dungeon_hash"
     t.integer  "user_id"
-    t.integer  "dungeon_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -63,8 +62,9 @@ ActiveRecord::Schema.define(version: 20150821075045) do
   create_table "dungeons", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "dungeon_hash_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "links", force: :cascade do |t|
