@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   scope :api, defaults: { format: :json } do
     resources :dungeons, only: [:show]
     resources :skills, only: [:index]
+    resources :student do
+      resources :dungeons, only: [:show] do
+        resources :dungeon_hashes, only: [:index]
+      end
+    end
   end
 
   scope 'api' do
