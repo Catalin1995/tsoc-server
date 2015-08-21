@@ -5,8 +5,8 @@ app.controller('StudentController', function ($scope, $http, $routeParams) {
   $http.get('/api/student/'+$routeParams.id).success(function(data){
     $scope.student = data['body'];
 
-    $http.get('api/skills').success(function(data){
-      $scope.all_skills = data['body'];
+    $http.get('api/dungeons/1').success(function(data){
+      $scope.dungeon = data['body']
 
       $scope.skills = {
         learnTemplate: 'Learn {n} to unlock.',
@@ -23,7 +23,7 @@ app.controller('StudentController', function ($scope, $http, $routeParams) {
           , 'Strength': 9
           , 'Wisdom': 9
         },
-        skills: $scope.all_skills
+        skills: $scope.dungeon.skills
       };
 
       //konami code plugin
