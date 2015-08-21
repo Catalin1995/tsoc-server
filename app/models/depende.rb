@@ -10,7 +10,7 @@ class Depende < ActiveRecord::Base
 
   def exist_depend
     if Skill.exists?(depend_on) == false
-      self.errors.add(:depend_on, 'This skill does not exist!!')
+      errors.add(:depend_on, 'This skill does not exist!!')
     end
   end
 end

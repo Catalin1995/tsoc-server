@@ -1,1 +1,1 @@
-json.(mentor ,:id, :image, :email, :name)
+json.call(mentor, :id, :image, :email, :name)

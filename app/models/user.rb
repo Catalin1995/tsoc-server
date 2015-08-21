@@ -4,8 +4,7 @@ class User < ActiveRecord::Base
   has_many :dungeon_hashes
 
   validates :name, presence: true
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -17,9 +16,8 @@ class User < ActiveRecord::Base
   private
 
   def set_gravature_img
-    if self.gravatar_image == true
-      self.remote_image_url = Gravatar.new(self.email).image_url
+    if gravatar_image == true
+      self.remote_image_url = Gravatar.new(email).image_url
     end
   end
-
 end

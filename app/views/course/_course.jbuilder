@@ -1,1 +1,1 @@
-json.(course, :id, :title, :link, :description, :image)
+json.call(course, :id, :title, :link, :description, :image)
