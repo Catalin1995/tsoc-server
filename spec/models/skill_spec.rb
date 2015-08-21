@@ -8,10 +8,12 @@ RSpec.describe Skill, type: :model do
   it { expect(subject).to have_many :ranks }
   it { expect(subject).to have_many :talents }
   it { expect(subject).to have_many :dependes }
+  it { expect(subject).to belong_to :dungeon }
 
   it { expect(subject).to validate_presence_of :title }
   it { expect(subject).to validate_presence_of :description }
   it { expect(subject).to validate_presence_of :maxPoints }
+  it { expect(subject).to validate_presence_of :dungeon }
 
   it 'create skill' do
     expect do

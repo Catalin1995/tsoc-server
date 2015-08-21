@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Dungeon, type: :model do
   let(:dungeon) { create :dungeon }
 
-  it { expect(subject).to have_many :dungeon_hashes }
+  it { expect(subject).to have_many :skills }
 
   it { expect(subject).to validate_presence_of :title }
 

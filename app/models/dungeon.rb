@@ -1,4 +1,4 @@
 class Dungeon < ActiveRecord::Base
-  has_many :dungeon_hashes
+  has_many :skills
   validates :title, presence: true
 end
