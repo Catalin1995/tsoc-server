@@ -25,16 +25,6 @@ app.config(['$routeProvider',
       controller: 'MentorController'
     })
 
-    .when('/course', {
-      templateUrl: 'partials/course/courses.html',
-      controller: 'CoursesController'
-    })
-
-    .when('/course/:id', {
-      templateUrl: 'partials/course/course.html',
-      controller: 'CourseController',
-    })
-
     .when('/main', {
       controller: "MainPageController"
     })

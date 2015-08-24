@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   scope 'api' do
     resources :student
-    resources :course
     resources :mentor
   end
   root 'student#index'
