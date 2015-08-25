@@ -48,4 +48,17 @@ RSpec.describe DungeonHashesController, type: :controller do
       end.to change{ DungeonHash.count }.by (0)
     end
   end
+
+  it 'update an dungeon_hash' do
+    dungeon = create :dungeon
+    student = create :user
+    dungeon_hash = create :dungeon_hash, dungeon_id: dungeon.id, user_id: student.id
+    new_dungeon_hash = put :update, dungeon_id: dungeon.id, student_id: student.id, id: dungeon_hash.id, hash: '_a2bc', format: :json
+    expect(json['code']).to eq(200)
+    expect(json['body']['dungeon_id']).to eq(dungeon.id)
+    expect(json['body']['user_id']).to eq(student.id)
+    expect(json['body']['id']).to eq(dungeon_hash.id)
+    expect(json['body']['dungeon_hash']).to eq('_a2bc')
+  end
+
 end
