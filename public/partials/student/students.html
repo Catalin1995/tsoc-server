@@ -9,10 +9,10 @@
 <div class="row">
   <div ng-repeat='student in students track by $index'>
     <div class="col-xs-3", align="center">
-      <a href='/student/{{student.id}}'>
+      <a href='/students/{{student.id}}'>
         <img src='{{student.image.image.url}}', height='50%', width='50%'>
       </a>
-      <h3><a href='/student/{{student.id}}'>{{student.name}}</a></h3>
+      <h3><a href='/students/{{student.id}}'>{{student.name}}</a></h3>
     </div>
   </div>
 </div>

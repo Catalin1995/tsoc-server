@@ -2,13 +2,13 @@ app.controller('StudentController', function ($scope, $http, $routeParams) {
 
   $scope.student = {};
 
-  $http.get('/api/student/'+$routeParams.id).success(function(data){
+  $http.get('/api/students/'+$routeParams.id).success(function(data){
     $scope.student = data['body'];
 
     $http.get('api/dungeons/1').success(function(data){
       $scope.dungeon = data['body']
 
-      $http.get('/api/student/'+$scope.student.id+'/dungeons/'+$scope.dungeon.id+'/dungeon_hashes').success(function(data){
+      $http.get('/api/students/'+$scope.student.id+'/dungeons/'+$scope.dungeon.id+'/dungeon_hashes').success(function(data){
         $scope.dungeon_hashes = data['body'];
         $scope.skills = {
           student_id: $scope.student.id,

@@ -68,7 +68,6 @@ RSpec.describe DungeonsController, type: :controller do
       expect(skill['talents'][0]).to eq(@talent.description)
       expect(skill['dependsOn'].count).to eq(1)
       expect(skill['dependsOn'][0]).to eq(@depend.depend_on)
-      pp skill
     end
   end
 end

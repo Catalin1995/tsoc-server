@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   scope :api, defaults: { format: :json } do
-    resources :mentor, only: [:index, :show]
+    resources :mentors, only: [:index, :show]
     resources :dungeons, only: [:show]
     resources :skills, only: [:index]
-    resources :student, only: [:index, :show] do
+    resources :students, only: [:index, :show] do
       resources :dungeons, only: [:show] do
         resources :dungeon_hashes
       end

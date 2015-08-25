@@ -1,4 +1,4 @@
-class StudentController < ApplicationController
+class StudentsController < ApplicationController
   def index
     @students = User.where(mentor: false)
   end

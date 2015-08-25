@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe MentorController, type: :controller do
+RSpec.describe MentorsController, type: :controller do
   render_views
   describe 'GET index' do
     it 'when does not exist items in db' do

@@ -9,22 +9,22 @@ app.config(['$routeProvider',
 
     $routeProvider
 
-    .when('/student', {
+    .when('/students', {
       templateUrl: 'partials/student/students.html',
       controller: 'StudentsController'
     })
 
-    .when('/student/:id', {
+    .when('/students/:id', {
       templateUrl: 'partials/student/student.html',
       controller: 'StudentController'
     })
 
-    .when('/mentor', {
+    .when('/mentors', {
       templateUrl: 'partials/mentor/mentors.html',
       controller: 'MentorsController'
     })
 
-    .when('/mentor/:id', {
+    .when('/mentors/:id', {
       templateUrl: 'partials/mentor/mentor.html',
       controller: 'MentorController'
     })
@@ -38,7 +38,7 @@ app.config(['$routeProvider',
         if(search.goto) {
           return "/" + search.goto
         } else {
-          return "/student"
+          return "/students"
         }
       }
     });

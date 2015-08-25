@@ -1,4 +1,4 @@
-class MentorController < ApplicationController
+class MentorsController < ApplicationController
   def index
     @mentors = User.where(mentor: true)
   end
