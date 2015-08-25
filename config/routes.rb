@@ -10,10 +10,10 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'student#index'
-
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  get "/*path" => redirect("/?goto=%{path}")
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

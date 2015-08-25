@@ -1,5 +1,9 @@
 var app = angular.module('app', ['ngRoute', 'ngResource']);
 
+app.config(['$locationProvider', function($locationProvider) {
+  $locationProvider.html5Mode(true);
+}]);
+
 app.config(['$routeProvider',
   function($routeProvider) {
 
@@ -30,7 +34,13 @@ app.config(['$routeProvider',
     })
 
     .otherwise({
-      redirectTo: '/student'
+      redirectTo: function(current, path, search) {
+        if(search.goto) {
+          return "/" + search.goto
+        } else {
+          return "/student"
+        }
+      }
     });
 
 }]);
