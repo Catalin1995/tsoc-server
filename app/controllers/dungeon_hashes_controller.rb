@@ -5,7 +5,11 @@ class DungeonHashesController < ApplicationController
       if Dungeon.exists?(params[:dungeon_id])
         if User.exists?(params[:student_id])
           @dungeon_hash = DungeonHash.create!(dungeon_id: params[:dungeon_id], user_id: params[:student_id], dungeon_hash: '_')
+        else
+          render_response('')
         end
+      else
+        render_response('')
       end
     end
   end
