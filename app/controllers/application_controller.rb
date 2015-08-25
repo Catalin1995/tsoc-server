@@ -10,4 +10,14 @@ class ApplicationController < ActionController::Base
   rescue_from SecurityError do |_exception|
     redirect_to '/admin/logout'
   end
+
+  def render_response(body, code = 200)
+    body = {
+      code: code,
+      body: body
+    }
+
+    render json: body, status: code
+  end
+
 end
