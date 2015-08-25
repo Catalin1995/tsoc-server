@@ -6,9 +6,10 @@ skills.each do |skill|
   elem = {}
   links = []
   stats = []
-  rankDescriptions = []
   talents = []
   dependsOn = []
+  rankDescriptions = []
+  
   elem['id'] = skill.id
   elem['title'] = skill.title
   elem['description'] = skill.description
