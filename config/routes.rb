@@ -1,18 +1,15 @@
 Rails.application.routes.draw do
   scope :api, defaults: { format: :json } do
+    resources :mentor, only: [:index, :show]
     resources :dungeons, only: [:show]
     resources :skills, only: [:index]
-    resources :student do
+    resources :student, only: [:index, :show] do
       resources :dungeons, only: [:show] do
         resources :dungeon_hashes
       end
     end
   end
 
-  scope 'api' do
-    resources :student
-    resources :mentor
-  end
   root 'student#index'
 
   devise_for :users, ActiveAdmin::Devise.config
