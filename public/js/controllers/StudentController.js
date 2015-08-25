@@ -10,7 +10,6 @@ app.controller('StudentController', function ($scope, $http, $routeParams) {
 
       $http.get('/api/student/'+$scope.student.id+'/dungeons/'+$scope.dungeon.id+'/dungeon_hashes').success(function(data){
         $scope.dungeon_hashes = data['body'];
-
         $scope.skills = {
           student_id: $scope.student.id,
           dungeon_id: $scope.dungeon.id,
@@ -55,10 +54,16 @@ app.controller('StudentController', function ($scope, $http, $routeParams) {
           //On page load
           $(function(){
 
-            //Create and bind the viewmodel
-            var vm = new tft.skilltree.Calculator(data, $http);
-            ko.applyBindings(vm);
-
+            try {
+              var vm = new tft.skilltree.Calculator(data, $http);
+              ko.applyBindings(vm);
+              console.log(1)
+            }
+            catch(exception){
+              var element = $(vm)[0];
+              ko.cleanNode(element);
+              ko.applyBindings(vm);
+            }
             // apply konami code plugin
             $(window).konami(function () { vm.open(); vm.godMode(); });
 
